@@ -22,22 +22,26 @@ const Pagination = ({ page, lastPage, setPage }) => {
   };
 
   return (
-    <div className="flex justify-center items-center py-4 px-2 gap-4 text-color-primary">
-      <button
-        className="transition-all hover:text-color-accent"
-        onClick={handlePrevPage}
-      >
-        Prev
-      </button>
+    <div className="flex justify-center items-center py-4 px-2 gap-4 text-color-primary text-2xl">
+      {page <= 1 ? null : (
+        <button
+          className="transition-all hover:text-color-accent"
+          onClick={handlePrevPage}
+        >
+          Prev
+        </button>
+      )}
       <p className="">
         {page} of {lastPage}
       </p>
-      <button
-        className="transition-all hover:text-color-accent"
-        onClick={handleNextPage}
-      >
-        Next
-      </button>
+      {page >= lastPage ? null : (
+        <button
+          className="transition-all hover:text-color-accent"
+          onClick={handleNextPage}
+        >
+          Next
+        </button>
+      )}
     </div>
   );
 };
